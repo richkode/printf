@@ -1,0 +1,57 @@
+			"_PRINTF" Project Manuel
+
+
+- formatted output conversion
+DESCRIPTION
+The function _printf is a variadic function that produces a string according to a provided format
+and prints it to the standard output, much like the C standard library function printf. It can receive a variable number of arguments.
+
+Prototype: int _printf(const char *format, ...);
+
+Return value
+On success, the function returns the number of characters printed. 
+
+On failure, the function returns -1.
+
+Format of the format string
+
+The format string can contain any characters, just like a regular string, in double quotes, which will be printed as is. For example, _printf("printf project") will print: printf project
+
+conversion specifiers.
+These start with a %, and are followed with a character
+
+ Conversion specifiers
+
+These are the characters that specify the type of the variable that needs to be printed. The variables to be printed are separated from the format string with a comma. Each variable passed to _printf need to have a conversion specifier.
+
+ i, d - Both these specifiers are for integers
+ c - Prints a single character.
+ s - Prints an entire string.
+ u - Prints an unsigned int. ie 0 or positive integers only
+ x, X - Prints a number in lowercase and uppercase respectively
+.I hexadecimal
+base.
+.sp
+ o, b - Prints a number in octal and binary respectively
+
+ % - Acts like an escape for the character %. 
+
+ r, R - Prints a string in reverse and in ROT13 encryption respectively.
+
+ S - Prints a string, but non-printable characters are printed this way: \\x, followed by the ASCII code value in uppercase hexadecimal.
+
+ p - Prints an address, given by a pointer variable
+
+ Flag characters for conversion specifiers
+ + - Prints a plus sign in front of positive signed integers and a minus sign in front of negative signed integers.
+ + overrides a space when both flags are given.
+
+ ' ' - Prints a space in front of signed integers.
+ # - Modifier for unsigned conversions. For x, prepends \(dq0x\(dq, and for X, prepends \(dq0X\(d For o, if the converted number doesn't already begin with a 0, prepends a 0.
+
+Edge Cases
+_printf does not take care of length and precision modifiers yet. For example, _printf(\(dq%hx\(dq) will not produce the same output as the call to the standard library printf.
+
+AUTHORS
+Tweneboanah Richmond Maunge
+Abolade Emmanuel Soladoye
